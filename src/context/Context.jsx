@@ -34,7 +34,8 @@ const ContextProvider=(props)=>{
       setRecentPrompt(input)
       response=await run(input)
     }
-    
+   response = response.trim();
+   response = response.replace(/\s+/g, ' ');
    let responseArray=response.split("**");
    let newResponse="";
    for(let i=0;i<responseArray.length;i++){
